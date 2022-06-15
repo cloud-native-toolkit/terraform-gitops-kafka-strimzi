@@ -1,0 +1,8 @@
+name: gitops-kafka-strimzi
+type: gitops
+description: Module to populate a gitops repo with the resources to provision kafka-strimzi
+tags:
+  - tools
+  - gitops
+versions: []
+id: github.com/cloud-native-toolkit/terraform-gitops-kafka-strimzi
