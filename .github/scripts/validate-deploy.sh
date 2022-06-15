@@ -59,13 +59,13 @@ check_k8s_resource "${NAMESPACE}" "deployment" "maskafka-entity-operator"
 sleep 1m
 
 # check kafka cluster is in ready state
-kafkastatus=$(kubectl get kafkas ${CLUSTERID} -n ${NAMESPACE} --no-headers -o custom-columns=":status.conditions[0].type")
+kafkastatus=$(kubectl get kafkas.kafka.strimzi.io ${CLUSTERID} -n ${NAMESPACE} --no-headers -o custom-columns=":status.conditions[0].type")
 
 count=0
 until [[ "${kafkastatus}" = "Ready" ]] || [[ $count -eq 20 ]]; do
   echo "Waiting for ${CLUSTERID} in ${NAMESPACE}"
   count=$((count + 1))
-  kafkastatus=$(kubectl get kafkas ${CLUSTERID} -n ${NAMESPACE} --no-headers -o custom-columns=":status.conditions[0].type")
+  kafkastatus=$(kubectl get kafkas.kafka.strimzi.io ${CLUSTERID} -n ${NAMESPACE} --no-headers -o custom-columns=":status.conditions[0].type")
   sleep 60
 done
 
