@@ -79,3 +79,64 @@ variable "server_name" {
   description = "The name of the server"
   default     = "default"
 }
+
+variable "channel" {
+  type        = string
+  description = "Subscription channel"
+  default     = "strimzi-0.22.x"
+}
+
+variable "installPlan" {
+  type        = string
+  description = "Install Plan for App"
+  default     = "Automatic"
+}
+
+variable "catalog" {
+  type        = string
+  description = "App catalog source"
+  default     = "community-operators"
+}
+
+variable "catalog_namespace" {
+  type        = string
+  description = "Catalog source namespace"
+  default     = "openshift-marketplace"
+}
+
+variable "appname" {
+  type        = string
+  description = "Name of kafka to install"
+  default     = "strimzi-kafka-operator"
+}
+
+variable "cluster_name" {
+  type        = string
+  description = "Name of kafka cluster"
+  default     = "mykafka"
+}
+
+variable "user_name" {
+  type        = string
+  description = "Name of kafka user"
+  default     = "kfuser"
+}
+
+variable "user_password" {
+  type        = string
+  sensitive   = true
+  description = "password for the kafkauser, if not defined it will generate a random password"
+  default     = ""
+}
+
+variable "kafka_size" {
+  type        = string
+  description = "The kafka cluster size to create: small or large"
+  default     = "small"
+}
+
+variable "storageclass" {
+  type        = string
+  description = "block storage to use for deployment"
+  default     = ""
+}
