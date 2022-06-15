@@ -37,13 +37,13 @@ output "type" {
 
 output "user_name" {
   description = "The type of module where the module is deployed"
-  value       = local.type
+  value       = var.user_name
   depends_on  = [gitops_module.kafka_app]
 }
 
 output "user_password" {
   description = "The type of module where the module is deployed"
-  value       = local.type
+  value       = local.user_password
   depends_on  = [gitops_module.kafka_app]
 }
 
